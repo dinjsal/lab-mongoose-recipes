@@ -1,5 +1,8 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+mongoose.set("strictQuery", false);
+
+// Iteration 1
 
 const recipeSchema = new Schema({
   title: { type: String, required: true, unique: true },
@@ -27,7 +30,7 @@ const recipeSchema = new Schema({
   },
   duration: { type: Number, min: 0 },
   creator: { type: String },
-  created: { type: Date, default: date.now },
+  created: { type: Date, default: Date.now },
 });
 
 const Recipe = mongoose.model("Recipe", recipeSchema);
