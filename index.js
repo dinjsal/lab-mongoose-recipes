@@ -159,21 +159,24 @@ mongoose
         .catch((err) => console.log(err));
     }
     addManyRecipes();
+
+    // Iteration 4
+
+    Recipe.findOneAndUpdate(
+      { title: "Rigatoni alla Genovese" },
+      { duration: 100 }
+    )
+      .then(() => console.log("Rigatoni alla Genovese duration updated!"))
+      .catch((err) => console.log(err));
+
+    // Iteration 5
+
+    Recipe.findOneAndDelete({ title: "Carrot Cake" })
+      .then(() => console.log("Carrot Cake deleted!"))
+      .catch((err) => console.log(err));
   })
   .catch((error) => {
     console.error("Error connecting to the database", error);
   });
-
-// Iteration 4
-
-Recipe.findOneAndUpdate({ title: "Rigatoni alla Genovese" }, { duration: 100 })
-  .then(() => console.log("Rigatoni alla Genovese duration updated!"))
-  .catch((err) => console.log(err));
-
-// Iteration 5
-
-Recipe.findOneAndDelete({ title: "Carrot Cake" })
-  .then(() => console.log("Carrot Cake deleted!"))
-  .catch((err) => console.log(err));
 
 // Iteration 6 - Close the Database
